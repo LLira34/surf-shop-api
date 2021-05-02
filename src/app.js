@@ -17,6 +17,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const postsRouter = require('./routes/posts');
 const reviewsRouter = require('./routes/reviews');
+const authRouter = require('./routes/auth');
 
 /**
  * Middlewares
@@ -42,6 +43,7 @@ mongoose.connection.once('error', (err) => console.error('Error: ', err));
  * Routes
  */
 app.use('/', indexRouter);
+app.use('/api', authRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/posts', postsRouter);
 app.use('/api/posts/:id/reviews', reviewsRouter);
